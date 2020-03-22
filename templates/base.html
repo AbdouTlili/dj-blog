@@ -1,11 +1,21 @@
 <html lang="en">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>Abdou's Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+    
 </head>
+
+<header>
+
+    <h1 style="font-size: 300%;"><a href="{% url 'home' %}">Abdou's Blog</a></h1>
+
+</header>
+
 <body>
-    <h1><a href="{% url 'home' %}">Abdou's Blog</a></h1>
 
 <div>
     {% block content %}

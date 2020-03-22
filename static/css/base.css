@@ -1,0 +1,8 @@
+header h1 a {
+    color: red;
+    font-size: 150%;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
