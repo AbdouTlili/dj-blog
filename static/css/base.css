@@ -22,7 +22,8 @@ header h1 a {
 
 .nav-right {
     display: flex;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+
 }
 
 .post-entry {

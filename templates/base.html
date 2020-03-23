@@ -10,8 +10,15 @@
 </head>
 
 <header>
+    <div class="nav-left">
+        <h1><a href="{% url 'home' %}">Abdou's Blog</a></h1>
+    </div>
+    
 
-    <h1 style="font-size: 300%;"><a href="{% url 'home' %}">Abdou's Blog</a></h1>
+    <div class="nav-right">
+        <a href="{% url 'post_new' %}">+ new Blog Post</a>
+    </div>
+
 
 </header>
 
