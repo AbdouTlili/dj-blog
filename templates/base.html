@@ -23,6 +23,12 @@
 </header>
 
 <body>
+{% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p> | <a href="{% url 'logout' %}">Log out</a>
+{% else  %}
+    <p>you're not logged in</p>
+    <a href="{% url 'login' %}">Log In</a> or <a href="{% url 'signup' %}">Sign up</a>
+{% endif %}
 
 <div>
     {% block content %}
