@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 dj-database-url = "*"
 psycopg2 = "*"
+gunicorn = "==19.9.0"
 
 [requires]
 python_version = "3.7"
