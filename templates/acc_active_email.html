@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+HI {{ user.username }}
+
+Please click the link to compleate your regestration :)
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+
+
+{% endautoescape %}
