@@ -45,7 +45,7 @@ def get_int_from_env(name, default_value):
 SECRET_KEY = '@@1tofu-tue41&tedioqwdl=he1*+#8=w1!j@fb*h0i&3geyt6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = get_bool_from_env(DEBUG,True)
+DEBUG = get_bool_from_env('DEBUG',True)
 
 ALLOWED_HOSTS = ['*']
 

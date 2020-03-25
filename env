@@ -1,0 +1,4 @@
+DEBUG=False EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='tlili.abdoou@gmail.com'
+EMAIL_HOST_PASSWORD='.Abdou271219'
+EMAIL_PORT=587
