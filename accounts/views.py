@@ -39,6 +39,9 @@ def signup(request):
             email = EmailMessage(mail_subject,message,to=[to_email])
             email.send()
             return HttpResponse('please Confirm your email address to complete the registration')
+        else :
+            form = SignUpForm()
+            return render(request,'signup.html',{'form' : form}, {'error': 'the email exists'})
     else :
         form = SignUpForm()
         return render(request,'signup.html',{'form' : form})

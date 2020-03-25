@@ -6,6 +6,9 @@
     {% csrf_token %}
 
     {{ form.as_p  }}
+    {% if not error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
     <button type="submit">SignUp</button>
 </form>
 
