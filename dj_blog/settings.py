@@ -16,6 +16,27 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def get_bool_from_env(name, default_value):
+    if name in os.environ:
+        value = os.environ[name]
+        try:
+            return ast.literal_eval(value)
+        except ValueError as e:
+            raise ValueError("{} is an invalid value for {}".format(value, name)) from e
+    return default_value
+
+
+def get_int_from_env(name, default_value):
+    if name in os.environ:
+        
+        try:
+            return int(os.environ[name])
+        except ValueError as e:
+            raise ValueError("{} is an invalid value for {}".format(value, name)) from e
+    return default_value
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -24,7 +45,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@@1tofu-tue41&tedioqwdl=he1*+#8=w1!j@fb*h0i&3geyt6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_bool_from_env(DEBUG,True)
 
 ALLOWED_HOSTS = ['*']
 
@@ -145,3 +166,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tlili.abdoou@gmail.com'
 EMAIL_HOST_PASSWORD = '.Abdou271219'
 EMAIL_PORT = 587
+
+EMAIL_HOST =  os.environ.get('EMAIL_HOST','smtp.gmail.com')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER','abdou@exmpl.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','default password') 
+EMAIL_PORT = get_int_from_env(EMAIL_PORT, 587)

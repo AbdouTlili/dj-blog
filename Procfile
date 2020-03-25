@@ -1,2 +1,2 @@
-release: python manage.py migrate
+release: ./env.sh
 web: gunicorn dj_blog.wsgi --log-file -
