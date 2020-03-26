@@ -1,5 +1,7 @@
 DEBUG=False
 EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='tlili.abdoou@gmail.com'
-EMAIL_HOST_PASSWORD='.Abdou271219'
-EMAIL_PORT=587
+SENDGRID_API_KEY = 'sendgridAPIkey'
+EMAIL_HOST_USER='exemple@smtpprovider.com'
+EMAIL_HOST_PASSWORD='passswdd'
+EMAIL_USE_TLS = True
+EMAIL_PORT=587 

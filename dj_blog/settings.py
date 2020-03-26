@@ -112,8 +112,22 @@ DATABASES = {
     'default' : dj_database_url.config(default='postgres://blogadmin:4520@localhost/blogapp',conn_max_age=600)
 }
 
+
+#SQlite3 Database for local tests in case you don't have/want-to-use PostgreSQL :
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+
+#TODO the password validation is important  you should activate it in real production !
+
 '''
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -161,15 +175,8 @@ if not DEBUG :  ## prodection static files dir :
 
 
 ## email Config
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'tlili.abdoou@gmail.com'
-EMAIL_HOST_PASSWORD = '.Abdou271219'
-EMAIL_PORT = 587
-'''
-EMAIL_HOST =  os.environ.get('EMAIL_HOST','smtp.gmail.com')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY','fdg659rtf3fdg6r4geg')
+EMAIL_HOST =  os.environ.get('EMAIL_HOST','smtp.sendgrid.com')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER','abdou@exmpl.com')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD','default password') 
 EMAIL_PORT = get_int_from_env('EMAIL_PORT', 587)
-'''
