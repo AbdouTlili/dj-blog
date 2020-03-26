@@ -49,7 +49,7 @@ export SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 export EMAIL_HOST = 'smtp.sendgrid.net'
 export EMAIL_HOST_USER = 'apikey'
 export EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-export EMAIL_PORT = 587```
+export EMAIL_PORT = 587
 export EMAIL_USE_TLS = True
 ```
 
@@ -60,3 +60,37 @@ export EMAIL_USE_TLS = True
 ```
 python manage.py runserver
 ```
+
+
+## Deployment :
+
+first you neeed to update the environment variables in the ```env``` file in the project directory  
+
+i chose heroku for the deployment, so you need to have a heroku active account (it is free though), logged in heroku CLI
+
+1- create a heroku app :
+```
+heroku create <name-of-the-app>
+```
+2- adding the app to the remote :
+```
+heroku git:remote -a <name-of-the-app>
+```
+3- setting up the environment variables that you updated :
+```
+heroku config:set $(< env )
+```
+4- add an commit the changes that you made :
+```
+git add -A ; git commit -m "post deployment commit"
+```
+and you're done deploying !
+just push the changes to the heroku Dyno 
+```
+git push heroku master
+```
+and ``` heroku open ``` when the push is done to visit the blog online
+
+### contribution/issues :
+feel free  to add anything or ask :D
+
